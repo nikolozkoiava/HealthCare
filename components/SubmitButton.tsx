@@ -5,7 +5,7 @@ import Image from "next/image";
 interface ButtonProps {
   isLoading: boolean;
   className?: string;
-  children: React.ReactDOM;
+  children: React.ReactNode;
 }
 
 const SubmitButton = ({ isLoading, className, children }: ButtonProps) => {
