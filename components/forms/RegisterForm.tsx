@@ -12,18 +12,19 @@ import { UserFormValidation } from "@/lib/validation";
 import { useRouter } from "next/navigation";
 import CustomFormField from "../CustomFormField";
 import { createUser } from "@/lib/actions/patient.actions";
+import { FormFieldType } from "./PatientForms";
 
-export enum FormFieldType {
-  INPUT = "input",
-  TEXTAREA = "textarea",
-  PHONE_INPUT = "phoneInput",
-  CHECKBOX = "checkbox",
-  DATE_PICKER = "datePicker",
-  SELECT = "select",
-  SKELETON = "skeleton",
-}
+// export enum FormFieldType {
+//   INPUT = "input",
+//   TEXTAREA = "textarea",
+//   PHONE_INPUT = "phoneInput",
+//   CHECKBOX = "checkbox",
+//   DATE_PICKER = "datePicker",
+//   SELECT = "select",
+//   SKELETON = "skeleton",
+// }
 
-const PatientForms = () => {
+const RegisterForm = ({ user }: { user: User }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -84,28 +85,10 @@ const PatientForms = () => {
           iconSrc="/assets/icons/user.svg"
           iconAlt="user"
         />
-
-        <CustomFormField
-          control={form.control}
-          fieldType={FormFieldType.INPUT}
-          name="email"
-          label="Email"
-          placeholder="nikolozkoiava@gmail.com"
-          iconSrc="/assets/icons/email.svg"
-          iconAlt="email"
-        />
-
-        <CustomFormField
-          control={form.control}
-          fieldType={FormFieldType.PHONE_INPUT}
-          name="phone"
-          label="Phone number"
-          placeholder="551 10 20 50"
-        />
         <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
       </form>
     </Form>
   );
 };
 
-export default PatientForms;
+export default RegisterForm;
